@@ -1,1 +1,9 @@
-# charityflows
+# Charity Flows
+
+[Open Charity Flows](https://coolcode.ca/charityflows/). Explore registered Canadian charities by name, business number, city, province, designation or recent reported revenue. Compare available fiscal periods, inspect qualified-donee gift values, and follow recipients where their reported charity business number exactly matches the index.
+
+The Canada Revenue Agency supplies Identification, Financial data and Qualified donees CSVs in annual T3010 packages. This version imports the 2022–2024 packages. The build joins financial and gift rows on the donor business number, fiscal period ending date, and form ID. Reporting periods use the original dates. Financial metrics use CRA form lines 4700, 5100, 4200 and 4350. The gifts panel uses positive `Total Gifts` amounts and combines rows sharing an exact recipient account number. Other recipient rows remain separate. Counts and totals cover all matched gifts in the selected filing. The table and its CSV present the 40 largest entries per period. Fields for addresses, directors and non-qualified donees are outside the index. Filings are self-reported and names may change.
+
+Run `python3 scripts/build.py`, then serve `dist/` over HTTP. Python’s standard library performs the build. Pass `--input-dir` containing the nine original CRA CSV downloads to rerun offline. The browser loads a compact gzip directory with a plain JSON fallback and fetches one of 128 detail shards on demand. Source download URLs and report coverage are listed in the generated manifest and the source datasets appear in the site footer.
+
+Contains information licensed under the [Open Government Licence – Canada](https://open.canada.ca/en/open-government-licence-canada). This independent application is unaffiliated with the Government of Canada.

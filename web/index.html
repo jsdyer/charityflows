@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Charity Flows · CoolCode.ca</title><meta name="description" content="Compare Canadian charities’ reported financials and follow qualified-donee gifts using CRA T3010 filings.">
+<link rel="stylesheet" href="./style.css"></head><body>
+<a class="skip" href="#main">Skip to search</a>
+<header><nav class="wrap mast" aria-label="Site"><a href="https://coolcode.ca/#workbench"><span class="tag" aria-hidden="true">&gt;_</span>CoolCode.ca</a><a href="https://apps.cra-arc.gc.ca/ebci/hacc/srch/pub/bscSrch">Official charity search ↗</a></nav>
+<div class="hero"><div class="wrap"><h1>Charity Flows</h1><p>Explore what Canadian charities report about their finances. Compare fiscal periods and follow reported gifts to qualified donees across the CRA register.</p></div></div></header>
+<main id="main" class="wrap">
+<section class="panel" aria-label="Data coverage"><div id="data-status" class="metadata" role="status">Opening filing directory…</div><p class="muted">T3010 financial disclosures are self-reported. The filing date shown is the fiscal period ending date. Figures are in Canadian dollars.</p></section>
+<div class="split" style="margin-top:1rem">
+<section aria-labelledby="directory" class="panel">
+ <h2 id="directory">Charity directory</h2>
+ <label>Search by name, city, or business number<input id="query" type="search" maxlength="130" placeholder="e.g. Canadian Red Cross"></label>
+ <div class="samples" aria-label="Example searches"><button type="button" data-query="Canadian Red Cross">Red Cross</button><button type="button" data-query="CanadaHelps">CanadaHelps</button><button type="button" data-query="United Way">United Way</button></div>
+ <div class="list">
+  <label>Province or territory<select id="region"><option value="">Any region</option></select></label>
+  <label>Designation<select id="designation"><option value="">Any designation</option><option value="A">Private foundation</option><option value="B">Public foundation</option><option value="C">Charitable organization</option></select></label>
+  <label>Sort<select id="sort"><option value="name">Name</option><option value="revenue">Most reported revenue</option></select></label>
+ </div>
+ <p id="result-status" class="status" role="status"></p><div id="results" class="list"></div><button id="more" type="button" hidden>More charities</button>
+</section>
+<section id="detail" class="panel" aria-label="Selected charity">
+ <p class="empty" id="placeholder">Choose a charity to see its reported finances and gifts.</p>
+ <div id="view" hidden>
+  <div id="designation-label" class="metadata"></div><h2 id="title" tabindex="-1"></h2>
+  <div class="list"><label>Fiscal period ending<select id="period"></select></label></div>
+  <div id="metrics" class="metrics"></div>
+  <div class="actions"><a id="report-source" target="_blank" rel="noopener noreferrer">Official source dataset ↗</a><button id="copy" type="button">Copy link</button></div>
+  <p id="action-status" role="status"></p>
+  <details open><summary>Financial history</summary>
+   <label style="margin-top:.55rem">Chart metric<select id="measure"><option value="2">Revenue</option><option value="3">Expenditures</option><option value="4">Assets</option><option value="5">Liabilities</option></select></label>
+   <div id="trend" class="barlist"></div>
+   <button id="financial-export" type="button">Export financial CSV</button>
+  </details>
+  <h3>Reported gifts to qualified donees</h3>
+  <p id="grants-summary" class="metadata"></p>
+  <div class="table-wrap"><table><thead><tr><th>Recipient as reported</th><th>Business number</th><th>Gift value</th></tr></thead><tbody id="grants"></tbody></table></div>
+  <p class="muted">Recipient links use exact business numbers in this index. A blank identifier means the source did not provide a recognizable charity number.</p>
+  <button id="grant-export" type="button">Export displayed gifts as CSV</button>
+ </div>
+</section>
+</div></main>
+<footer><div class="wrap">Contains information licensed under the <a href="https://open.canada.ca/en/open-government-licence-canada">Open Government Licence – Canada</a>. Original publisher is the Canada Revenue Agency. View the official annual datasets <span id="source-list"></span>. Organization identities and gift entries come from filed data. <a href="https://github.com/jsdyer/charityflows">Project source</a></div></footer>
+<script type="module" src="./app.mjs"></script></body></html>
