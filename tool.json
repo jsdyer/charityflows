@@ -1,0 +1,25 @@
+{
+  "id": "charityflows",
+  "title": "Charity Flows",
+  "description": "Compare Canadian charity filings and explore grants to reported recipients.",
+  "category": "disclosures",
+  "tags": [
+    "cra",
+    "t3010",
+    "charity",
+    "donation",
+    "qualified",
+    "donee",
+    "grant"
+  ],
+  "icon": "hand-heart",
+  "url": "/charityflows/",
+  "source": "https://github.com/jsdyer/charityflows",
+  "hosting": "project",
+  "access": "browser",
+  "data_info": {
+    "mode": "snapshot",
+    "detail": "CRA charity filings report finances and gifts to qualified donees.",
+    "cadence": "Monthly"
+  }
+}

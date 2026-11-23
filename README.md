@@ -1,5 +1,9 @@
 # Charity Flows
 
+<!-- coolcode:guide -->
+Find a charity by name or business number, compare its available fiscal periods and follow exact business-number matches in the gifts panel. The table and CSV show the 40 largest gift entries per period, while totals cover all matched gifts in the selected filing.
+<!-- /coolcode:guide -->
+
 [Open Charity Flows](https://coolcode.ca/charityflows/). Explore registered Canadian charities by name, business number, city, province, designation or recent reported revenue. Compare available fiscal periods, inspect qualified-donee gift values, and follow recipients where their reported charity business number exactly matches the index.
 
 The Canada Revenue Agency supplies Identification, Financial data and Qualified donees CSVs in annual T3010 packages. This version imports the 2022–2024 packages. The build joins financial and gift rows on the donor business number, fiscal period ending date, and form ID. Reporting periods use the original dates. Financial metrics use CRA form lines 4700, 5100, 4200 and 4350. The gifts panel uses positive `Total Gifts` amounts and combines rows sharing an exact recipient account number. Other recipient rows remain separate. Counts and totals cover all matched gifts in the selected filing. The table and its CSV present the 40 largest entries per period. Fields for addresses, directors and non-qualified donees are outside the index. Filings are self-reported and names may change.
