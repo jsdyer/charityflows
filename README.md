@@ -11,3 +11,11 @@ The Canada Revenue Agency supplies Identification, Financial data and Qualified 
 Run `python3 scripts/build.py`, then serve `dist/` over HTTP. Python’s standard library performs the build. Pass `--input-dir` containing the nine original CRA CSV downloads to rerun offline. The browser loads a compact gzip directory with a plain JSON fallback and fetches one of 128 detail shards on demand. Source download URLs and report coverage are listed in the generated manifest and the source datasets appear in the site footer.
 
 Contains information licensed under the [Open Government Licence – Canada](https://open.canada.ca/en/open-government-licence-canada). This independent application is unaffiliated with the Government of Canada.
+
+<!-- schedule-reliability -->
+## Schedule reliability
+
+Public GitHub repositories can have scheduled workflows disabled after 60 days of inactivity. A separate weekly [schedule guard](.github/workflows/schedule-guard.yml) calls GitHub's enable-workflow API for an explicit list of refresh workflows and itself. It can restore workflows disabled for inactivity, preserves manually disabled workflows, and runs independently of collection failures.
+
+This is an interim mitigation, not a scheduling guarantee: GitHub does not document active-workflow renewal as a permanent exemption, and scheduled runs can be delayed or dropped. A scheduler on our own Linux server is the planned independent trigger. The guard does not collect data, create dummy commits, or change source/check timestamps; successful collection and published data freshness still need monitoring.
+<!-- /schedule-reliability -->
